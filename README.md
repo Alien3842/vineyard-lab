@@ -52,11 +52,13 @@ hash and evaluates the selected model on the test set. Promotion writes
 do not keep retuning against the test score. See `ml/README_experiments.md`.
 
 ```powershell
-mlflow ui --backend-store-uri sqlite:///mlflow.db --host 127.0.0.1 --port 5000
+python scripts/relocate_tracking.py
+mlflow ui --backend-store-uri sqlite:///mlflow.db --host 127.0.0.1 --port 5000 --workers 1
 ```
 
 Open http://127.0.0.1:5000 and choose `vineyard-lab`. Keep `mlflow.db` and
-`mlartifacts/` together, and run this command from the project directory. Tracking
+`mlartifacts/` together. Run the relocation script after moving/extracting the
+bundle, with the tracking UI stopped, then start the UI from the project directory. Tracking
 is local, without a public server or credentials. MLflow is a training dependency;
 the slim runtime image deliberately excludes it.
 

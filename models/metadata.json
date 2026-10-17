@@ -1,0 +1,31 @@
+{
+  "run_id": "a30d20d714a24da7a580f36804b237f3",
+  "git_sha": "5a24bb2c147bfbb88e4083b1e1048f610efca934",
+  "dataset_version": "v2",
+  "dataset_sha256": "bb2f6d6a7462be4e15e9ce09cae8cdb5e3bd1b2f59a4f85bd9a4099013c0d5f5",
+  "feature_names": [
+    "alcohol",
+    "malic_acid",
+    "ash",
+    "alcalinity_of_ash",
+    "magnesium",
+    "total_phenols",
+    "flavanoids",
+    "nonflavanoid_phenols",
+    "proanthocyanins",
+    "color_intensity",
+    "hue",
+    "od280/od315_of_diluted_wines",
+    "proline"
+  ],
+  "config": {
+    "C": 1.0,
+    "max_iter": 2000,
+    "random_state": 42
+  },
+  "validation_macro_f1": 1.0,
+  "validation_accuracy": 1.0,
+  "test_macro_f1": 0.9751724137931035,
+  "test_accuracy": 0.9722222222222222,
+  "test_rows": 36
+}

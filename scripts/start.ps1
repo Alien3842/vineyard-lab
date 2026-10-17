@@ -1,5 +1,12 @@
 $ErrorActionPreference = 'Stop'
 Set-Location (Split-Path $PSScriptRoot -Parent)
+$preparedPython = Join-Path $PWD '../../work/venv/Scripts/python.exe'
+if ((Test-Path $preparedPython) -and (-not (Test-Path '.venv/Scripts/python.exe'))) {
+    Write-Host 'Using the environment prepared for this computer.'
+    Write-Host 'Open http://127.0.0.1:8000 (Ctrl+C stops server)'
+    & $preparedPython -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+    exit $LASTEXITCODE
+}
 if (-not (Test-Path '.venv/Scripts/python.exe')) {
     py -3.12 -m venv .venv
     if ($LASTEXITCODE -ne 0) { throw 'Install Python 3.12 with the Windows py launcher first.' }

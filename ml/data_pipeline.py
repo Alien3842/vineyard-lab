@@ -19,7 +19,9 @@ def build(version: str, destination: Path = Path("data")):
         raise ValueError("version must be v1 or v2")
     destination.mkdir(parents=True, exist_ok=True)
     for name, subset in [("train", train), ("validation", validation), ("test", test)]:
-        subset.sort_values("sample_id").to_csv(destination / f"{name}.csv", index=False)
+        subset.sort_values("sample_id").to_csv(
+            destination / f"{name}.csv", index=False, lineterminator="\r\n"
+        )
 
 
 if __name__ == "__main__":

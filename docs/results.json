@@ -1,0 +1,143 @@
+{
+  "versions": [
+    {
+      "tag": "data-v1",
+      "git_sha": "8306b5aff77f928b0498fd1cc8ab7baae49ea4e5",
+      "dvc_md5": "2566cdf9877abb6cbd30262b18b20b14.dir",
+      "sha256": "cddba0255ac4611b3911a34246f9fedc358ba4e17939225fac7b881cef5533b5",
+      "counts": {
+        "train": 74,
+        "validation": 36,
+        "test": 36
+      }
+    },
+    {
+      "tag": "data-v2",
+      "git_sha": "5a24bb2c147bfbb88e4083b1e1048f610efca934",
+      "dvc_md5": "456b9d52120b803e62579d9056e5c70b.dir",
+      "sha256": "bb2f6d6a7462be4e15e9ce09cae8cdb5e3bd1b2f59a4f85bd9a4099013c0d5f5",
+      "counts": {
+        "train": 106,
+        "validation": 36,
+        "test": 36
+      }
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "109f9e9599e24b0fa1b8afd0bc89c657",
+      "git_sha": "8306b5aff77f928b0498fd1cc8ab7baae49ea4e5",
+      "dataset_version": "v1",
+      "dataset_sha256": "cddba0255ac4611b3911a34246f9fedc358ba4e17939225fac7b881cef5533b5",
+      "feature_names": [
+        "alcohol",
+        "malic_acid",
+        "ash",
+        "alcalinity_of_ash",
+        "magnesium",
+        "total_phenols",
+        "flavanoids",
+        "nonflavanoid_phenols",
+        "proanthocyanins",
+        "color_intensity",
+        "hue",
+        "od280/od315_of_diluted_wines",
+        "proline"
+      ],
+      "config": {
+        "C": 0.01,
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation_macro_f1": 0.9484126984126985,
+      "validation_accuracy": 0.9444444444444444
+    },
+    {
+      "run_id": "4d08725b11a04c64bdc6562cf6de8191",
+      "git_sha": "5a24bb2c147bfbb88e4083b1e1048f610efca934",
+      "dataset_version": "v2",
+      "dataset_sha256": "bb2f6d6a7462be4e15e9ce09cae8cdb5e3bd1b2f59a4f85bd9a4099013c0d5f5",
+      "feature_names": [
+        "alcohol",
+        "malic_acid",
+        "ash",
+        "alcalinity_of_ash",
+        "magnesium",
+        "total_phenols",
+        "flavanoids",
+        "nonflavanoid_phenols",
+        "proanthocyanins",
+        "color_intensity",
+        "hue",
+        "od280/od315_of_diluted_wines",
+        "proline"
+      ],
+      "config": {
+        "C": 0.01,
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation_macro_f1": 0.974320987654321,
+      "validation_accuracy": 0.9722222222222222
+    },
+    {
+      "run_id": "a30d20d714a24da7a580f36804b237f3",
+      "git_sha": "5a24bb2c147bfbb88e4083b1e1048f610efca934",
+      "dataset_version": "v2",
+      "dataset_sha256": "bb2f6d6a7462be4e15e9ce09cae8cdb5e3bd1b2f59a4f85bd9a4099013c0d5f5",
+      "feature_names": [
+        "alcohol",
+        "malic_acid",
+        "ash",
+        "alcalinity_of_ash",
+        "magnesium",
+        "total_phenols",
+        "flavanoids",
+        "nonflavanoid_phenols",
+        "proanthocyanins",
+        "color_intensity",
+        "hue",
+        "od280/od315_of_diluted_wines",
+        "proline"
+      ],
+      "config": {
+        "C": 1.0,
+        "max_iter": 2000,
+        "random_state": 42
+      },
+      "validation_macro_f1": 1.0,
+      "validation_accuracy": 1.0
+    }
+  ],
+  "selected": {
+    "run_id": "a30d20d714a24da7a580f36804b237f3",
+    "git_sha": "5a24bb2c147bfbb88e4083b1e1048f610efca934",
+    "dataset_version": "v2",
+    "dataset_sha256": "bb2f6d6a7462be4e15e9ce09cae8cdb5e3bd1b2f59a4f85bd9a4099013c0d5f5",
+    "feature_names": [
+      "alcohol",
+      "malic_acid",
+      "ash",
+      "alcalinity_of_ash",
+      "magnesium",
+      "total_phenols",
+      "flavanoids",
+      "nonflavanoid_phenols",
+      "proanthocyanins",
+      "color_intensity",
+      "hue",
+      "od280/od315_of_diluted_wines",
+      "proline"
+    ],
+    "config": {
+      "C": 1.0,
+      "max_iter": 2000,
+      "random_state": 42
+    },
+    "validation_macro_f1": 1.0,
+    "validation_accuracy": 1.0,
+    "test_macro_f1": 0.9751724137931035,
+    "test_accuracy": 0.9722222222222222,
+    "test_rows": 36
+  }
+}

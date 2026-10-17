@@ -16,7 +16,8 @@ def main():
             with urllib.request.urlopen("http://127.0.0.1:8000/health", timeout=2) as response:
                 health = json.load(response)
             break
-        except (urllib.error.URLError, TimeoutError):
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as error:
+            print(f"Waiting for service ({attempt + 1}/30): {type(error).__name__}: {error}")
             time.sleep(1)
     else:
         raise RuntimeError("Service never became ready")

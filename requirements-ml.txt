@@ -1,0 +1,4 @@
+-r requirements-dev.txt
+mlflow==3.17.1
+dvc[azure]==3.67.1
+matplotlib==3.11.2

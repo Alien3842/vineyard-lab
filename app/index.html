@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vineyard Lab</title>
+<style>
+body{margin:0;background:#f6f3ed;color:#263f36;font:16px system-ui}main{max-width:940px;margin:60px auto;padding:24px}small{letter-spacing:3px}h1{font:52px Georgia;margin:14px 0}p{line-height:1.6}form{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;background:white;padding:28px;border-radius:14px}label{font-size:13px}input{display:block;box-sizing:border-box;width:100%;padding:10px;margin-top:7px;border:1px solid #bac6bb;border-radius:5px}button{background:#263f36;color:white;border:0;border-radius:5px;padding:14px;cursor:pointer}#result{padding:24px;background:#e5ebdf;margin-top:24px;border-radius:10px;white-space:pre-line}footer{font-size:13px;color:#626b61;margin-top:24px}
+</style><main><small>CHEMISTRY → CULTIVAR</small><h1>Vineyard Lab</h1>
+<p>Identify one of three wine cultivars from 13 laboratory measurements. The prefilled sample is an example from the public Wine dataset. These classes are cultivar identifiers, not wine quality scores.</p>
+<form id="form"><button id="submit" type="submit">Classify sample</button></form>
+<div id="result" role="status" aria-live="polite">Loading model information…</div>
+<footer>Teaching project · small historical dataset · model probabilities are not calibrated confidence. Feature names follow the original dataset; use its measurement conventions.</footer>
+<script>
+const example=[14.23,1.71,2.43,15.6,127,2.8,3.06,.28,2.29,5.64,1.04,3.92,1065];
+const form=document.querySelector('#form'), result=document.querySelector('#result');
+let features=[];
+fetch('/model').then(r=>{if(!r.ok)throw Error('Model unavailable');return r.json()}).then(m=>{
+ features=m.feature_names;features.forEach((name,i)=>{const label=document.createElement('label');label.textContent=name.replaceAll('_',' ');const input=document.createElement('input');input.type='number';input.step='any';input.min='0';input.max='1000000000';input.required=true;input.value=example[i];input.name=name;label.append(input);form.insertBefore(label,document.querySelector('#submit'));});
+ result.textContent=`Ready · run ${m.run_id.slice(0,8)} · test macro F1 ${m.test_macro_f1.toFixed(3)}`;
+}).catch(e=>result.textContent=e.message);
+form.addEventListener('submit',async e=>{e.preventDefault();if(!features.length)return;const button=document.querySelector('#submit');button.disabled=true;try{const r=await fetch('/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({values:features.map(n=>Number(form.elements.namedItem(n).value))})});const data=await r.json();if(!r.ok)throw Error(JSON.stringify(data.detail));result.textContent=`Predicted cultivar: ${data.cultivar}\n`+data.probabilities.map((p,i)=>`Cultivar ${i+1}: ${(p*100).toFixed(1)}%`).join('\n');}catch(err){result.textContent=`Could not classify: ${err.message}`;}finally{button.disabled=false;}});
+</script></main></html>

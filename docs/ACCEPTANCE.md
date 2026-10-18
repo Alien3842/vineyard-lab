@@ -9,15 +9,15 @@ template configuration as proof of an Azure upload or GitHub deployment.
 | Trained ML application | app/main.py, app/index.html, models/ | Local implementation |
 | At least 3 meaningful tests with edge cases | tests/test_app.py, tests/test_data.py | Run results in docs/LOCAL_VERIFICATION.md |
 | Git history and dataset commits | Git history, data-v1/data-v2 tags | Local only; team PR evidence still required |
-| GitHub online repository | DEPLOYMENT.md setup | Pending team repository URL |
-| Feature → dev → staging → main | README branch plan; local branches | Actual team PRs pending |
-| Slim Dockerfile and ignore | Dockerfile, .dockerignore | Configured; local Docker unavailable |
-| PR CI full tests + lint + Docker build | .github/workflows/ci.yml | GitHub run pending |
-| Failed CI cannot merge | Required quality check documented | Account-level rule and refusal test pending |
-| Environment-specific staging / production configuration | Delivery environments and .env | Secrets and hosted run pending |
-| Automated deployment stage | Delivery starts and checks runner container | Configured; hosted execution pending |
+| GitHub online repository | https://github.com/Starry202122/vineyard-lab | Published |
+| Feature → dev → staging → main | GitHub PRs #1, #2, #3 | Merge flow verified; contributions from two other students pending |
+| Slim Dockerfile and ignore | Dockerfile, .dockerignore | Real builds passed in GitHub CI; local Docker unavailable |
+| PR CI full tests + lint + Docker build | .github/workflows/ci.yml | Hosted checks, image build and runtime smoke test passed |
+| Failed CI cannot merge | PR #4: required quality failed and merge disabled | Verified on dev; all three protection rules created |
+| Environment-specific staging / production configuration | Delivery environments and .env | Both environment configurations passed hosted checks |
+| Automated deployment stage | Delivery starts runner container and publishes GHCR image | Staging and production delivery passed; runner hosting is temporary |
 | DVC initialized | .dvc/, data.dvc | Locally verified |
-| Azure DVC remote | configure_azure.ps1 and template .dvc/config | Real account/container + upload/pull pending |
+| Azure DVC remote | Course resource; docs/AZURE_VERIFICATION.md | 6 objects uploaded; v1/v2 recovered in separate empty-cache clones with matching hashes |
 | Two dataset versions | data-v1/data-v2, ml/README_data.md | Actual local snapshots |
 | Commit ↔ dataset mapping | ml/PROVENANCE.md | Generated from real commits |
 | MLflow tracking code | ml/train.py | Actual local runs |

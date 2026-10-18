@@ -14,9 +14,9 @@ Verified on Windows with Python 3.12, using the pinned project dependencies.
 | Browser | Form loaded, button click produced cultivar 1 with approximately 99.9% model probability |
 | MLflow UI | HTTP 200 on port 5000, using one worker for Windows |
 | Dependency consistency | pip check: no broken requirements |
-| Docker build/runtime | GitHub CI built the image successfully; initial container smoke test failed; no local Docker daemon |
-| GitHub Actions / protection / GHCR | Initial hosted lint, tests and Docker build passed; readiness fix awaits PR verification; branch protection and GHCR delivery pending |
-| Azure push/pull | Not executed: real storage account/container not configured |
+| Docker build/runtime | Fixed readiness checks passed in real GitHub Docker jobs; no local Docker daemon |
+| GitHub Actions / protection / GHCR | Dev/staging/main CI and both delivery environments passed; required failing quality check disabled merging on demo PR #4 |
+| Azure push/pull | Course SAS: 6 objects pushed; both tags downloaded in separate empty-cache clones and hashes verified |
 
 The first local pytest attempt encountered the execution sandbox's default-temp
 directory restriction. Rerunning with a workspace-local --basetemp completed all
@@ -39,7 +39,10 @@ Readiness regression tests reproduce a gap: an early connection reset or remote
 disconnect escapes the original retry handler. The fix retries those transport
 errors within the existing 30-attempt limit and prints diagnostics. Permanent
 startup failure still fails CI. These tests failed against the original handler
-and pass with the fix; they do not substitute for rerunning the actual Docker job.
+and pass with the fix. Real Docker jobs subsequently passed after PRs #1-#3.
+
+Azure verification used the course-provided resource, not a personal subscription.
+Detailed recovery evidence is in `AZURE_VERIFICATION.md` and its JSON record.
 
 `test-results.xml` contains the actual test report. `results.json` contains the
 real dataset/commit/run mapping. `app-preview.png` is the browser result after

@@ -23,7 +23,7 @@ The evaluation sets remain byte-identical between versions. This avoids selectin
 - `data-v1`: commit `8306b5aff77f928b0498fd1cc8ab7baae49ea4e5`, DVC directory hash `2566cdf9877abb6cbd30262b18b20b14.dir`.
 - `data-v2`: commit `5a24bb2c147bfbb88e4083b1e1048f610efca934`, DVC directory hash `456b9d52120b803e62579d9056e5c70b.dir`.
 
-Git stores data.dvc and ignores data/. DVC cache objects hold the dataset bytes. The default remote URL is an unconnected Azure template until configured with your real storage account and container. See DEPLOYMENT.md for authentication and uploading both historical versions. Never describe the local cache as proof that the Azure remote works.
+Git stores data.dvc and ignores data/. DVC cache objects hold the dataset bytes. The remote now uses the course account `wut2026`, container `dvc`, and dedicated prefix `vineyard-lab-starry202122`. The SAS token is stored only in ignored local configuration. Both versions were uploaded and recovered in separate empty-cache clones; their SHA-256 digests match the original training records. See `docs/AZURE_VERIFICATION.md` and its JSON evidence. Local cache hits alone do not prove remote access.
 
 ## Reproduce a historical dataset safely
 

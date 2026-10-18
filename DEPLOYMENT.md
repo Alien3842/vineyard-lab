@@ -38,6 +38,19 @@ person. Never fabricate author identities, dates, approvals or screenshots.
 
 ## 3. Azure Blob Storage for DVC
 
+The private course guide supplies account `wut2026`, container `dvc` and a SAS
+token. This project now uses its own prefix `vineyard-lab-starry202122`. Upload
+and empty-cache recovery of both dataset versions have been verified; see
+`docs/AZURE_VERIFICATION.md` and `docs/azure-download-verification.json`.
+You do not need to open your own subscription for this course resource.
+
+On another machine, install `requirements-ml.txt`, run
+`python scripts/configure_course_azure.py` and enter the private course SAS at the
+hidden prompt. Then use `dvc pull -r azure`. Keep the token and original private
+course guide out of Git and shared deliverables. The current machine is configured.
+
+### Optional alternative: your own Azure resource
+
 Create or use an Azure Storage account and a **private Blob container**. Install
 Azure CLI, sign in locally with `az login`, and grant the signed-in identity
 Storage Blob Data Contributor at the relevant scope. Roles can take time to apply.
@@ -60,8 +73,7 @@ as part of proving a download.
 If account policy requires a connection string, enter it locally with
 `dvc remote modify --local azure connection_string <your-value>`; `.dvc/config.local`
 is ignored. Do not paste it into chat, documentation, screenshots, or Actions logs.
-The template remote uses container `vineyard-data` and lacks an account name until
-you run the configuration script. It is a template, not a connected Azure remote.
+Use this alternative only if intentionally replacing the verified course remote.
 
 ## 4. What the delivery pipeline actually does
 

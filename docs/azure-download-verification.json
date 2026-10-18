@@ -1,0 +1,32 @@
+{
+  "account": "wut2026",
+  "container": "dvc",
+  "prefix": "vineyard-lab-starry202122",
+  "credential": "SAS token stored only in Git-ignored local config",
+  "versions": [
+    {
+      "tag": "data-v1",
+      "git_sha": "8306b5aff77f928b0498fd1cc8ab7baae49ea4e5",
+      "sha256": "cddba0255ac4611b3911a34246f9fedc358ba4e17939225fac7b881cef5533b5",
+      "rows": {
+        "train": 74,
+        "validation": 36,
+        "test": 36
+      },
+      "empty_cache_before_pull": true,
+      "dvc_pull_output": "A       data\\\n4 files fetched and 3 files added"
+    },
+    {
+      "tag": "data-v2",
+      "git_sha": "5a24bb2c147bfbb88e4083b1e1048f610efca934",
+      "sha256": "bb2f6d6a7462be4e15e9ce09cae8cdb5e3bd1b2f59a4f85bd9a4099013c0d5f5",
+      "rows": {
+        "train": 106,
+        "validation": 36,
+        "test": 36
+      },
+      "empty_cache_before_pull": true,
+      "dvc_pull_output": "A       data\\\n4 files fetched and 3 files added"
+    }
+  ]
+}

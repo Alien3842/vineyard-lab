@@ -37,7 +37,12 @@ docker run --rm -p 8000:8000 --env APP_ENV=local vineyard:local
 
 Install `requirements-ml.txt`. The repository stores only `data.dvc`; the supplied
 ZIP also contains a local DVC cache and an offline demonstration copy of public
-data. Raw CSV files are ignored by Git. Azure remains the required shared remote.
+data. Raw CSV files are ignored by Git. Azure is the shared remote.
+
+The course Azure remote is now configured. Both dataset versions were uploaded
+and recovered in separate clones with empty caches; see `docs/AZURE_VERIFICATION.md`.
+Teammates enter the private course SAS using `python scripts/configure_course_azure.py`.
+Credentials remain in ignored local configuration and are never committed.
 
 ```powershell
 dvc checkout

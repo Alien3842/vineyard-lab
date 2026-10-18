@@ -2,4 +2,5 @@
     analytics = false
     remote = azure
 ['remote "azure"']
-    url = azure://vineyard-data/vineyard-lab
+    url = azure://dvc/vineyard-lab-starry202122
+    account_name = wut2026

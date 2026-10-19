@@ -112,3 +112,5 @@ that valid input comes from the original data distribution.
 The local build history records an assisted project build. It is not evidence of
 three students collaborating on GitHub. Each member must review and make a real
 contribution through the documented PR flow and follow the course's AI-use policy.
+
+<!-- fork CI verification -->

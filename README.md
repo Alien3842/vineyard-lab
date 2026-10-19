@@ -116,3 +116,5 @@ contribution through the documented PR flow and follow the course's AI-use polic
 <!-- fork CI verification -->
 
 <!-- fork CI verification -->
+
+<!-- verify staging and production delivery -->

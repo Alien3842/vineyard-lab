@@ -56,3 +56,8 @@ def test_service_endpoints(client, endpoint):
     assert client.get(endpoint).status_code == 200
     if endpoint == "/health":
         assert client.get(endpoint).json()["run_id"] == client.get("/model").json()["run_id"]
+
+
+def test_intentional_failure_demo():
+    assert False, 'demo: CI must block merge'
+
